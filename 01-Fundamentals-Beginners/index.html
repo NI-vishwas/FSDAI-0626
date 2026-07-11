@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Gradebook Portal</title>
+</head>
+<body>
+
+    <!-- 1. Student Profile Header (HTML Structure) -->
+    <h1>Welcome to My Webpage</h1>
+    <p>This web dashboard serves as an automated administrative portal designed to track, calculate, and display student academic performance across the semester.</p>
+    
+    <div>
+        <h2>Student Information</h2>
+        <ul>
+            <li><strong>USN:</strong> 1XX26CS001</li>
+            <li><strong>Name of User:</strong> Alex Smith</li>
+        </ul>
+    </div>
+
+    <!-- 2. Subjectwise Marks & Grades Display -->
+    <div>
+        <h2>Subjectwise Performance</h2>
+        <ul>
+            <li id="subject-1">Web Development: Processing...</li>
+            <li id="subject-2">Database Systems: Processing...</li>
+            <li id="subject-3">Data Structures: Processing...</li>
+        </ul>
+    </div>
+
+    <!-- 3. Core Logic Engine (Modern JavaScript Code) -->
+    <script>
+// ==========================================
+// MODULE 1: GLOBAL DATA INITIALIZATION
+// ==========================================
+// Topic 1: Variables & Data Types
+const userUSN = "1XX26CS001";     // Immutable String
+const userName = "Alex Smith";     // Immutable String
+
+// Print the application header directly to the console system
+console.log("========================================");
+console.log("WELCOME TO THE STUDENT GRADEBOOK PORTAL");
+console.log("========================================");
+console.log("USN: " + userUSN);
+console.log("Student Name: " + userName);
+console.log("----------------------------------------");
+
+
+// ==========================================
+// MODULE 2: THE EVALUATION ENGINE
+// ==========================================
+// Topic 2: Control Flow (Decision Making Logic)
+function calculateGrade(marks) {
+    // Dynamic variable definition using let to store fluctuating results
+    let letterGrade;
+
+    if (marks >= 90) {
+        letterGrade = "S";
+    } else if (marks >= 80) {
+        letterGrade = "A";
+    } else if (marks >= 70) {
+        letterGrade = "B";
+    } else if (marks >= 60) {
+        letterGrade = "C";
+    } else if (marks >= 50) {
+        letterGrade = "D";
+    } else {
+        letterGrade = "F (Fail)";
+    }
+
+    return letterGrade;
+}
+
+
+// ==========================================
+// MODULE 3: AUTOMATION HUB & EXECUTION
+// ==========================================
+// Topic 3: Functions (Encapsulation & Reusability)
+function processSubjectRecord(subjectName, marks) {
+    // Call the evaluation module to compute the grade
+    const gradeResult = calculateGrade(marks);
+    
+    // String Concatenation combining different data types
+    const recordSummary = subjectName + " — Marks: " + marks + " | Grade: " + gradeResult;
+    
+    // Output the completed record dynamically to the reporting line
+    console.log(recordSummary);
+}
+
+// Invoke the automation module sequentially for multiple items without code duplication
+processSubjectRecord("Web Development", 92);
+processSubjectRecord("Database Systems", 74);
+processSubjectRecord("Data Structures", 45);
+
+console.log("========================================");
+    </script>
+
+</body>
+</html>
