@@ -1,0 +1,15 @@
+img{
+    border-radius: 200px;
+    width: 200px;
+    height: 200px;
+}
+/* ul{
+    position: relative;
+    margin-left: 400px;
+} */
+.mclass{
+    color: blue;
+}
+#mcolor{
+    border: 2px solid black;
+}
