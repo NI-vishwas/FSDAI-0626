@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App1</title>
+</head>
+<body>
+    <h1>My Application</h1>
+    <script>
+        // function calc(op1,op2,op) {
+        //     let result = 0;
+        //     switch (op) {
+        //         case '+':
+        //             result = op1 + op2;
+        //             return result;
+        //         case '-':
+        //             result = op1 - op2;
+        //             return result;
+        //         case '*':
+        //             result = op1 * op2;
+        //             return result;
+        //         case '/':
+        //             result = op1 / op2;
+        //             return result;
+        //         default:
+        //             console.log("Invalid Operator");
+        //             return result;
+        //     }
+        // }
+
+        const calc = function(op1,op2,op) {
+            let result = 0;
+            switch (op) {
+                case '+':
+                    result = op1 + op2;
+                    return result;
+                case '-':
+                    result = op1 - op2;
+                    return result;
+                case '*':
+                    result = op1 * op2;
+                    return result;
+                case '/':
+                    result = op1 / op2;
+                    return result;
+                default:
+                    console.log("Invalid Operator");
+                    return result;
+            }
+        }
+
+        let a = 100;
+        let b = 100;
+
+        console.log(calc(a,b,'+'));
+        console.log(calc(a,b,'*'));
+    </script>
+    
+</body>
+</html>

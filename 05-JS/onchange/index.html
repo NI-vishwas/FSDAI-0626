@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     
+    <meta charset="UTF-8" />
+     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     
+    <title>onchange Example</title>
+</head>
+
+<body>
+        <label for="inputText">Enter Text:</label>  
+    <input type="text" id="inputText" onchange="displayText()" />  
+    <h2 id="outputText">Text will be displayed here</h2>
+       
+    <script>
+        function displayText() {
+            // Get the input value
+            const inputValue = document.getElementById("inputText").value; // Update the h2 tag with the input value
+            document.getElementById("outputText").innerText = inputValue;
+        }
+    </script>
+     
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    form {
+      display: inline-block;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+ 
+  <form id="signupForm">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required>
+    <br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required>
+    <br>
+    
+    <label for="birthdate">Birthdate:</label>
+    <input type="date" id="birthdate" name="birthdate" required>
+    <br>
+    
+    <label>Gender:</label>
+    <input type="radio" id="male" name="gender" value="male" required>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female" required>
+    <label for="female">Female</label>
+    <input type="radio" id="other" name="gender" value="other" required>
+    <label for="other">Other</label>
+    <br>
+    
+    <label for="country">Country:</label>
+    <select id="country" name="country" required>
+      <option value="USA">USA</option>
+      <option value="India">India</option>
+      <option value="UK">UK</option>
+      <option value="Canada">Canada</option>
+      <option value="Australia">Australia</option>
+    </select>
+    <br>
+    
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" rows="4" required></textarea>
+    <br>
+    
+    <label for="pincode">Pincode:</label>
+    <input type="number" id="pincode" name="pincode" required>
+    <br>
+    
+    <button type="button" onclick="validateAndDisplay()">Signup</button>
+    <button type="reset">Reset</button>
+  </form>
+ 
+  <script>
+    function validateAndDisplay() {
+      // Get values from the form
+      var fullName = document.getElementById("fullName").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+      var birthdate = document.getElementById("birthdate").value;
+      var gender = document.querySelector('input[name="gender"]:checked');
+      var country = document.getElementById("country").value;
+      var address = document.getElementById("address").value;
+      var pincode = document.getElementById("pincode").value;
+ 
+      // Validate email format
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Invalid email format");
+        return;
+      }
+ 
+      // Validate password match
+      if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return;
+      }
+ 
+      // Display entered details in an alert
+      var userDetails = "Full Name: " + fullName +
+                        "\nEmail: " + email +
+                        "\nBirthdate: " + birthdate +
+                        "\nGender: " + gender.value +
+                        "\nCountry: " + country +
+                        "\nAddress: " + address +
+                        "\nPincode: " + pincode;
+ 
+      alert("Signup Successful!\n\n" + userDetails);
+    }
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      form {
+        display: inline-block;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+      <br /><br />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+      <br /><br />
+      <button type="button" onclick="validateForm()">Login</button>
+    </form>
+
+    <script>
+      function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        if (username !== "" && password !== "") {
+          if (username.length >= 5 && password.length >= 8) {
+            alert("Login successful!");
+          } else {
+            alert(
+              "Username should be at least 5 characters long, and password should be at least 8 characters long."
+            );
+          }
+        } else {
+          alert("Please enter both username and password.");
+        }
+      }
+    </script>
+  </body>
+</html>
