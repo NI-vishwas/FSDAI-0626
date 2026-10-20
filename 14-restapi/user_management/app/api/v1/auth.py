@@ -20,7 +20,12 @@ def register():
         user = create_user(payload)
         return {
             "message": "User created",
-            "data": {"id": user.id, "email": user.email, "name": user.name},
+            "data": {
+                "id": user.id,
+                "email": user.email,
+                "name": user.name,
+                "role": user.role,
+            },
         }, 201
     except ValueError as exc:
         return {"error": str(exc)}, 400
@@ -43,6 +48,11 @@ def login():
         "message": "Login successful",
         "data": {
             "access_token": token,
-            "user": {"id": user.id, "email": user.email, "name": user.name},
+            "user": {
+                "id": user.id,
+                "email": user.email,
+                "name": user.name,
+                "role": user.role,
+            },
         },
     }, 200

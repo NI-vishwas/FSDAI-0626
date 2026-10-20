@@ -80,9 +80,12 @@ app2/
 {
   "name": "Jane Doe",
   "email": "jane@example.com",
-  "password": "StrongPass#2026"
+   "password": "StrongPass#2026",
+   "role": "customer"
 }
 ```
+
+Allowed role values: `admin`, `staff`, `customer` (defaults to `customer`).
 
 ### Login payload
 

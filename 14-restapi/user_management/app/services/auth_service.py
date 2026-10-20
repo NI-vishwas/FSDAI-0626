@@ -1,7 +1,7 @@
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from app.extensions import db
-from app.models.user import User
+from app.models.user import USER_ROLES, User
 
 
 def create_user(payload: dict) -> User:
@@ -9,10 +9,16 @@ def create_user(payload: dict) -> User:
     if existing:
         raise ValueError("Email already registered")
 
+    raw_role = payload.get("role")
+    role = "customer" if raw_role in (None, "") else str(raw_role).strip().lower()
+    if role not in USER_ROLES:
+        raise ValueError("Invalid role")
+
     user = User(
         name=payload["name"].strip(),
         email=payload["email"].lower().strip(),
         password_hash=generate_password_hash(payload["password"], method="scrypt"),
+        role=role,
     )
     db.session.add(user)
     db.session.commit()

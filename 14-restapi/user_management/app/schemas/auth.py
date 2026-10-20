@@ -1,5 +1,7 @@
 from email_validator import EmailNotValidError, validate_email
 
+from app.models.user import USER_ROLES
+
 
 def _is_strong_password(password: str) -> bool:
     if len(password) < 12:
@@ -18,6 +20,8 @@ def validate_register_payload(payload: dict) -> dict:
     name = str(payload.get("name", "")).strip()
     email = str(payload.get("email", "")).strip()
     password = str(payload.get("password", ""))
+    raw_role = payload.get("role")
+    role = "customer" if raw_role in (None, "") else str(raw_role).strip().lower()
 
     if len(name) < 2:
         errors["name"] = "Name must be at least 2 characters"
@@ -31,6 +35,9 @@ def validate_register_payload(payload: dict) -> dict:
         errors["password"] = (
             "Password must be at least 12 chars and include upper, lower, number, and symbol"
         )
+
+    if role not in USER_ROLES:
+        errors["role"] = "Role must be one of: admin, staff, customer"
 
     return errors
 
